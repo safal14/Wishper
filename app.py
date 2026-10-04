@@ -896,7 +896,8 @@ def process_all_clips():
 
 @app.post("/api/merge")
 def merge_clips():
-    clip_ids = (request.get_json(silent=True) or {}).get("clip_ids", [])
+    merge_request = request.get_json(silent=True) or {}
+    clip_ids = merge_request.get("clip_ids", [])
     if not isinstance(clip_ids, list) or not clip_ids or any(not isinstance(clip_id, str) for clip_id in clip_ids) or len(set(clip_ids)) != len(clip_ids):
         return jsonify(error="Choose one or more unique clips for the source sequence."), 400
     clips = [read_clip(clip_id) for clip_id in clip_ids]
@@ -930,6 +931,8 @@ def merge_clips():
     project = read_project()
     project.update({"clip_order": clip_ids, "prepared_job_id": job_id})
     PROJECT_PATH.write_text(json.dumps(project, indent=2), encoding="utf-8")
+    if merge_request.get("skip_transcription"):
+        return jsonify(**{key: value for key, value in preparation.items() if key != "fingerprint"})
     try:
         metadata = transcribe(merged_path, job_dir)
         return jsonify(**{key: value for key, value in preparation.items() if key != "fingerprint"},
@@ -1273,6 +1276,55 @@ def remote_handshake():
         return jsonify(server_url=GENERATOR_SERVER_URL, status=status,
                        message=raw.decode("utf-8", errors="replace"))
     except RuntimeError as exc:
+        return jsonify(error=str(exc)), 502
+
+
+@app.post("/api/remote/transcribe")
+def remote_transcribe():
+    """Send the locally edited/merged source to the generator's transcription worker."""
+    data = request.get_json(silent=True) or {}
+    job_id = data.get("job_id")
+    job_dir = safe_job_dir(job_id)
+    video_path = job_dir / "merged.mp4" if job_dir else None
+    if not video_path or not video_path.is_file():
+        return jsonify(error="Prepared source video is missing."), 404
+    try:
+        body, content_type = multipart_form({"user_id": GENERATOR_USER_ID}, {
+            "video": ("merged.mp4", "video/mp4", video_path.read_bytes())
+        })
+        _, response_type, raw = remote_http("POST", "/api/transcribe", body, content_type)
+        raw_text = raw.decode("utf-8", errors="replace").strip()
+        payload = json.loads(raw_text) if "json" in response_type or raw_text.startswith("{") else None
+        remote_id = payload.get("job_id") or payload.get("id") if isinstance(payload, dict) else raw_text.strip('"')
+        if not remote_id:
+            raise RuntimeError("Transcription server returned an empty job ID.")
+        record = {"remote_job_id": str(remote_id), "submitted_at": datetime.now(timezone.utc).isoformat()}
+        (job_dir / "remote-transcription.json").write_text(json.dumps(record, indent=2), encoding="utf-8")
+        return jsonify(job_id=job_id, remote_job_id=str(remote_id), status="submitted")
+    except (RuntimeError, OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
+        return jsonify(error=str(exc)), 502
+
+
+@app.get("/api/remote/transcribe/<job_id>")
+def remote_transcription_status(job_id):
+    job_dir = safe_job_dir(job_id)
+    record_path = job_dir / "remote-transcription.json" if job_dir else None
+    if not record_path or not record_path.is_file():
+        return jsonify(error="No remote transcription job exists."), 404
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+        remote_id = urllib.parse.quote(str(record["remote_job_id"]), safe="")
+        _, content_type, raw = remote_http("GET", f"/api/transcribe/{remote_id}")
+        payload = json.loads(raw.decode("utf-8")) if "json" in content_type else raw.decode("utf-8", errors="replace")
+        status_text = remote_status_text(payload).lower()
+        state = "failed" if any(x in status_text for x in ("failed", "error", "cancel")) else "completed" if any(x in status_text for x in ("complete", "completed", "done", "success")) else "running"
+        segments = payload.get("segments") if isinstance(payload, dict) else None
+        transcript = payload.get("transcript") if isinstance(payload, dict) else None
+        if isinstance(transcript, dict):
+            segments = transcript.get("segments", segments)
+        return jsonify(job_id=job_id, state=state, response=payload, segments=segments,
+                       language=payload.get("language") if isinstance(payload, dict) else None)
+    except (RuntimeError, OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
         return jsonify(error=str(exc)), 502
 
 

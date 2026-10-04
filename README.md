@@ -1,6 +1,6 @@
-# Wishper Studio
+# Video Generation Client
 
-A local Flask client workspace for preparing the user's source video and a structured handoff package. Uploaded video is source footage that appears inside a video generated later by another system. This application does not create generated scenes or the final composition.
+A frontend client for uploading source video, editing the requested composition, monitoring server-side processing, and viewing the returned final video. Media processing, transcription, prompt construction, scene generation, and final composition belong on the generator server.
 
 For the full plain-language explanation of the workflow, code, techniques, saved files, and current limits, see [WORKSPACE_GUIDE.md](WORKSPACE_GUIDE.md).
 
@@ -16,7 +16,7 @@ For the full plain-language explanation of the workflow, code, techniques, saved
 8. Review the complete package and create it through the local `/api/server-package` endpoint. The UI does **not** transmit it to the other device yet; that handshake still needs to be agreed and implemented.
 9. When a finished MP4 is available from the other device, use **Import finished MP4** in the client. Each import is stored as `output/<job-id>/generated-<unique-id>.mp4`; the latest is played and downloadable, while earlier versions stay on disk. Importing is a temporary local return path, not the future authenticated server callback.
 
-The handoff JSON is stored at `output/<job-id>/server-package.json`. It includes references to the prepared source video, transcript, captions, music asset, generated canvas ratio, per-clip overlay settings, a global overlay timeline, and the prompt. When a style is selected, the server also includes its verified Revideo files in the package and agent prompt; only the ID comes from the browser. Large media files remain on disk and are referenced by path.
+The complete client/server ownership and required remote API are documented in [CLIENT_SERVER_BOUNDARY.md](CLIENT_SERVER_BOUNDARY.md). The current remote `/api/jobs` endpoint still needs that frontend-only contract before local processing can be removed safely.
 
 The `prompt` field is agent-ready: it combines the user's creative brief with a time-coded composition plan for overlay, split-screen, and full-frame sections. `user_prompt` keeps the original brief unchanged, while `layout_instructions` contains just the generated composition plan. The structured `overlay` object remains authoritative for exact timing, crop, and placement; each clip's `source_file` points to the original/processed clip whose pixel coordinates the crop describes. Timeline times refer to the prepared sequence, while original-source times account for trimming. Existing packages are unchanged; review and send again to create a package with these fields.
 

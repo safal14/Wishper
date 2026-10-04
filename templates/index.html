@@ -72,6 +72,7 @@ main{display:grid;grid-template-columns:280px minmax(460px,1fr) 330px;grid-templ
 .music-panel details{border-top:1px solid var(--line);padding-top:12px;margin-top:10px}.music-panel summary{color:var(--accent-strong);font-size:12px;cursor:pointer}.music-panel details label{display:block;margin:10px 0 5px}.music-panel details input{max-width:100%;font-size:12px}
 .music-settings{display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,.6fr);gap:11px 18px;margin-top:16px;align-items:end}.music-settings label{font-size:12px;color:#c9cbc5}.music-settings label:first-child{grid-column:1}.music-settings #background-volume{grid-column:1;accent-color:var(--accent);width:100%;margin:0}.music-settings label[for=music-start]{grid-column:2;grid-row:1}.music-settings #music-start{grid-column:2;grid-row:2;width:100%}
 .finish-actions{grid-column:1/-1;display:flex;align-items:center;gap:15px}.finish-actions #package-status{line-height:1.45}.finish-actions button{min-width:160px}
+#generation-progress{grid-column:1/-1;padding:16px;background:#111512;border:1px solid var(--line);border-radius:var(--radius)}#generation-progress h3{margin:0 0 12px;font-size:14px}#progress-summary{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:11px;margin-bottom:10px}#progress-bar{height:8px;background:#252b25;border-radius:99px;overflow:hidden}#progress-fill{height:100%;width:0;background:var(--accent);transition:width .3s ease}.progress-meta{display:flex;justify-content:space-between;gap:10px;margin-top:9px;color:var(--muted);font-size:11px}.progress-steps{display:flex;gap:5px;margin-top:13px;flex-wrap:wrap}.progress-step{padding:5px 8px;border:1px solid #303730;border-radius:99px;color:var(--muted);font-size:10px}.progress-step.active{border-color:var(--accent);color:var(--ink)}.progress-step.done{background:#26352a;color:#b8dfbd;border-color:#52795c}
 #upload-zone,.controls,.timeline-wrap{scroll-margin-top:90px}
 @media(max-width:860px){.finish-area .handoff{grid-template-columns:1fr}.finish-actions{grid-column:1}}
 @media(max-width:700px){.flow-guide{grid-template-columns:1fr;gap:8px}.flow-guide a{justify-self:start}.finish-area{padding:26px 17px 30px}.finish-actions{align-items:stretch;flex-direction:column}.finish-actions button{width:100%}.music-settings{grid-template-columns:minmax(0,1fr) minmax(115px,.55fr)}}
@@ -140,10 +141,11 @@ main{display:grid;grid-template-columns:280px minmax(460px,1fr) 330px;grid-templ
       <div class="brief-panel"><label for="server-prompt"><strong>What should the server create?</strong><small>Describe the story, scenes, style, and pace. Your source placement is already included.</small></label><textarea id="server-prompt" rows="7" placeholder="For example: Make a warm travel story with calm scenery behind my source clips."></textarea><p class="hint">Your overlay, split-screen, and full-frame choices are included in the server instructions.</p></div>
       <div class="music-panel"><label for="background-sound"><strong>Background music</strong><small>Pick an included instrumental track or use your own.</small></label><select id="background-sound" disabled><option>Loading included music…</option></select><p id="music-status" class="hint" role="status">Loading music choices…</p><audio id="music-preview" controls preload="metadata" hidden></audio><details id="own-music"><summary>Use my own track</summary><label class="hint" for="music-file">Choose an audio file</label><input id="music-file" type="file" accept="audio/*"></details><div class="music-settings"><label for="background-volume">Music volume <output id="background-volume-out">12%</output></label><input id="background-volume" type="range" min="0" max="100" value="12"><label for="music-start">Start music at (seconds)</label><input id="music-start" type="number" min="0" step="0.1" value="0"></div></div>
       <div class="finish-actions"><button id="send-package" disabled>Review package</button><div id="package-status" class="hint" role="status">Prepare the source; its transcript will be created automatically.</div></div>
+      <div id="generation-progress" hidden><h3>Server processing</h3><div id="progress-summary"><span id="progress-step-label">Waiting to start</span><span id="progress-percent">0%</span></div><div id="progress-bar"><div id="progress-fill"></div></div><div class="progress-meta"><span id="progress-elapsed">Elapsed: —</span><span id="progress-remaining">Remaining: —</span></div><div id="progress-steps" class="progress-steps" aria-live="polite"></div></div>
     </div>
     <section id="return-panel" class="return-panel" aria-labelledby="return-title" hidden>
       <h3 id="return-title">Finished video</h3>
-      <p>The package is ready on this device. The other server is not connected yet; import its finished MP4 here when you receive it, then watch or download it below.</p>
+      <p>The server owns processing and returns the finished MP4 here when generation completes.</p>
       <div class="actions"><a id="package-link" target="_blank" rel="noopener">View handoff package</a><label for="result-upload" class="hint">Import finished MP4</label><input id="result-upload" type="file" accept="video/mp4,.mp4"></div>
       <div id="return-status" class="hint" role="status"></div>
       <video id="generated-player" controls playsinline hidden></video><a id="generated-download" hidden download="generated.mp4">Download finished video</a>
@@ -188,22 +190,41 @@ main{display:grid;grid-template-columns:280px minmax(460px,1fr) 330px;grid-templ
     $('#segments').innerHTML=transcript?.segments?.length?transcript.segments.map((segment,index)=>`<label class="segment"><span class="time">${formatTime(segment.start)}–${formatTime(segment.end)}</span><textarea data-transcript-index="${index}" rows="2">${esc(segment.text)}</textarea></label>`).join(''):`<p class="hint">${transcript?'No speech detected. You can still create scenes from your prompt.':'Transcript unavailable. Use Prepare again to retry transcription.'}</p>`;
     updateJourney();
   }
+  let transcriptionPollTimer;
+  async function requestServerTranscript(jobId){
+    clearTimeout(transcriptionPollTimer);
+    const submit=await fetch('/api/remote/transcribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({job_id:jobId})});
+    const submitted=await submit.json();if(!submit.ok)throw Error(submitted.error||'Could not start server transcription.');
+    status.textContent='Server transcription started…';
+    const poll=async()=>{
+      const response=await fetch(`/api/remote/transcribe/${jobId}`);const data=await response.json();
+      if(!response.ok)throw Error(data.error||'Could not read server transcription status.');
+      if(data.state==='failed')throw Error('Server transcription failed.');
+      if(data.state==='completed'){
+        if(!Array.isArray(data.segments))throw Error('Server transcription completed without transcript segments.');
+        showPrepared({job_id:jobId,video_url:state.prepared.url,duration:state.prepared.duration},{...data,segments:data.segments});
+        status.textContent=data.segments.length?`Transcript ready${data.language?' · '+data.language:''}. Review it, then choose a style, prompt, and music.`:'No speech detected. You can still choose a style, prompt, and music.';
+        $('#segments').scrollIntoView({behavior:'smooth',block:'start'});return;
+      }
+      status.textContent='Server is transcribing your video…';transcriptionPollTimer=setTimeout(poll,3000);
+    };
+    await poll();
+  }
   $('#merge').onclick=async()=>{
     const order=[...state.order];if(!order.length){status.textContent='Add a source clip to the sequence.';return}
     const button=$('#merge');button.disabled=true;
     try{
       if(state.prepared&&!state.transcript){
-        status.textContent='Retrying automatic transcription…';
-        const r=await fetch(`/api/jobs/${state.prepared.jobId}/transcribe`,{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.error||'Transcript generation failed.');
-        showPrepared({job_id:state.prepared.jobId,video_url:state.prepared.url,duration:state.prepared.duration},d);
+        status.textContent='Retrying server transcription…';
+        await requestServerTranscript(state.prepared.jobId);
       }else{
         invalidatePreparation();
-        status.textContent='Preparing source and creating transcript… This may take several minutes.';
+        status.textContent='Preparing source on this client…';
         if(await window.flushLayoutSaves?.(true)===false)throw Error('Could not save the latest layout. Try again.');
         for(const id of order){const r=await fetch(`/api/clips/${id}/process`,{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.error||'Could not process a clip.');Object.assign(clip(id),d.clip)}
-        const r=await fetch('/api/merge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({clip_ids:order})});const d=await r.json();if(!r.ok)throw Error(d.error||'Could not prepare the source video.');
+        const r=await fetch('/api/merge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({clip_ids:order,skip_transcription:true})});const d=await r.json();if(!r.ok)throw Error(d.error||'Could not prepare the source video.');
         showPrepared(d,d);
-        if(d.transcription_error){status.textContent=`Source ready, but transcript failed: ${d.transcription_error} Use Prepare again to retry.`;return}
+        await requestServerTranscript(d.job_id);
       }
       status.textContent=state.transcript?.segments?.length?`Transcript ready${state.transcript.language?' · '+state.transcript.language:''}. Review it, then choose a style, prompt, and music.`:'No speech detected. You can still choose a style, prompt, and music.';
       $('#segments').scrollIntoView({behavior:'smooth',block:'start'});
@@ -373,16 +394,28 @@ main{display:grid;grid-template-columns:280px minmax(460px,1fr) 330px;grid-templ
     }catch(error){$('#review-status').textContent=error.message}finally{button.disabled=false}
   };
   let remotePollTimer;
+  const generationSteps=['uploading','validating','editing','transcribing','waiting_for_review','building_prompt','generating_scenes','rendering_video','finalizing','completed'];
+  function formatDuration(seconds){if(!Number.isFinite(Number(seconds)))return '—';const s=Math.max(0,Math.round(Number(seconds)));return `${Math.floor(s/60)}m ${String(s%60).padStart(2,'0')}s`}
+  function updateProgress(data){
+    const raw=data.response&&typeof data.response==='object'?data.response:{};
+    const step=String(raw.step||raw.phase||raw.current_step||data.state||'running').toLowerCase();
+    const index=Number.isFinite(Number(raw.step_index))?Number(raw.step_index):Math.max(0,generationSteps.indexOf(step));
+    const percent=Number.isFinite(Number(raw.percent))?Number(raw.percent):Number.isFinite(Number(raw.progress))?Number(raw.progress):data.state==='completed'?100:Math.min(95,Math.max(5,(index+1)/generationSteps.length*100));
+    $('#generation-progress').hidden=false;$('#progress-step-label').textContent=raw.message||step.replaceAll('_',' ');$('#progress-percent').textContent=`${Math.round(percent)}%`;$('#progress-fill').style.width=`${Math.max(0,Math.min(100,percent))}%`;
+    $('#progress-elapsed').textContent=`Elapsed: ${formatDuration(raw.elapsed_seconds)}`;$('#progress-remaining').textContent=`Remaining: ${raw.estimated_remaining_seconds==null?'—':formatDuration(raw.estimated_remaining_seconds)}`;
+    $('#progress-steps').innerHTML=generationSteps.map((name,i)=>`<span class="progress-step ${i<index||data.state==='completed'?'done':''} ${i===index&&data.state!=='completed'?'active':''}">${i<index||data.state==='completed'?'✓ ':''}${name.replaceAll('_',' ')}</span>`).join('');
+  }
   async function pollRemoteJob(jobId){
     clearTimeout(remotePollTimer);
     try{
       const response=await fetch(`/api/remote/jobs/${jobId}`);const data=await response.json();
       if(!response.ok)throw Error(data.error||'Could not read generator status.');
+      updateProgress(data);
       if(data.state==='completed'){
         $('#package-status').textContent='Generation finished. Downloading the finished video…';
         const imported=await fetch(`/api/remote/jobs/${jobId}/import`,{method:'POST'});const result=await imported.json();
         if(!imported.ok)throw Error(result.error||'Generation finished but the video could not be imported.');
-        showResult(result.video_url);$('#package-status').textContent='Finished video returned from the connected server.';return;
+        showResult(result.video_url);$('#package-status').textContent='Finished video returned from the connected server.';updateProgress({state:'completed',response:{percent:100,message:'Video completed',elapsed_seconds:data.response?.elapsed_seconds}});return;
       }
       if(data.state==='failed'){throw Error('The generator server reported a failed job.');}
       $('#package-status').textContent='Generation is running on the connected server…';
