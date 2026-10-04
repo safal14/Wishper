@@ -1,0 +1,1 @@
+{"version":3,"file":"StackTrace.d.ts","sourceRoot":"","sources":["../../../src/components/console/StackTrace.tsx"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAC,eAAe,EAAC,MAAM,aAAa,CAAC;AAGjD,MAAM,WAAW,eAAe;IAC9B,OAAO,EAAE,eAAe,EAAE,CAAC;CAC5B;AAED,wBAAgB,UAAU,CAAC,EAAC,OAAO,EAAC,EAAE,eAAe,gCAuBpD"}

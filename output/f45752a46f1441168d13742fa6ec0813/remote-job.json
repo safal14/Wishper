@@ -1,0 +1,9 @@
+{
+  "server_url": "http://192.168.1.16:8001",
+  "remote_job_id": "ajob_3decd697f6b0",
+  "submitted_at": "2026-10-04T07:27:49.384271+00:00",
+  "submission": {
+    "job_id": "ajob_3decd697f6b0",
+    "status": "QUEUED"
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "schema": "wishper.client-package/2",
+  "status": "ready_for_server",
+  "created_at": "2026-10-04T07:27:48.776664+00:00",
+  "job_id": "f45752a46f1441168d13742fa6ec0813",
+  "project": {
+    "aspect_ratio": "9:16",
+    "orientation": "vertical"
+  },
+  "source_video": {
+    "file": "output/f45752a46f1441168d13742fa6ec0813/merged.mp4",
+    "duration": 143.508,
+    "clip_order": [
+      "7bed8450770541dd8a119c61a790fcec",
+      "a25f7f907b724497ad69dee975e73abc",
+      "076099bdb9ec44fb9dd342e173fe6d7d"
+    ]
+  },
+  "overlay": {
+    "schema": "wishper.overlay/2",
+    "created_at": "2026-10-04T07:27:48.774845+00:00",
+    "canvas": {
+      "orientation": "vertical",
+      "aspect_ratio": "9:16",
+      "width": 720,
+      "height": 1280
+    },
+    "clips": [
+      {
+        "clip_id": "7bed8450770541dd8a119c61a790fcec",
+        "index": 0,
+        "name": "WhatsApp_Video_2026-09-29_at_1.32.17_PM_1.mp4",
+        "file": "processed.mp4",
+        "source_file": "output/clips/7bed8450770541dd8a119c61a790fcec/processed.mp4",
+        "source": {
+          "width": 474,
+          "height": 850,
+          "orientation": "vertical",
+          "has_audio": true,
+          "duration": 49.058,
+          "trim_start": 0,
+          "trim_end": 49.058
+        },
+        "mode": "overlay",
+        "regions": {
+          "full": {
+            "x": 0,
+            "y": 0.00431,
+            "w": 1.0,
+            "h": 0.99137,
+            "mirror": false,
+            "aspect": 0.5625,
+            "px": {
+              "x": 0,
+              "y": 4,
+              "w": 474,
+              "h": 843
+            }
+          },
+          "pane_1": {
+            "x": 0,
+            "y": 0.25218,
+            "w": 1.0,
+            "h": 0.49569,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 214,
+              "w": 474,
+              "h": 421
+            }
+          },
+          "pane_2": {
+            "x": 0,
+            "y": 0.25218,
+            "w": 1.0,
+            "h": 0.49569,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 214,
+              "w": 474,
+              "h": 421
+            }
+          },
+          "inset": {
+            "x": 0,
+            "y": 0.02232,
+            "w": 1.0,
+            "h": 0.55765,
+            "mirror": false,
+            "shape": "circle",
+            "aspect": 1.0,
+            "px": {
+              "x": 0,
+              "y": 19,
+              "w": 474,
+              "h": 474
+            }
+          }
+        },
+        "overlay": {
+          "position": "custom",
+          "size": 0.33,
+          "margin": 0.04,
+          "x": 0.67,
+          "y": 0.001,
+          "border_width": 2.0,
+          "border_color": "#ffffff",
+          "shadow": true
+        },
+        "split": {
+          "direction": "horizontal",
+          "ratio": 0.5,
+          "source_side": "second"
+        },
+        "segments": [
+          {
+            "start": 0.0,
+            "end": 49.058,
+            "layout": "overlay"
+          }
+        ]
+      },
+      {
+        "clip_id": "a25f7f907b724497ad69dee975e73abc",
+        "index": 1,
+        "name": "WhatsApp_Video_2026-09-29_at_1.32.17_PM.mp4",
+        "file": "processed.mp4",
+        "source_file": "output/clips/a25f7f907b724497ad69dee975e73abc/processed.mp4",
+        "source": {
+          "width": 576,
+          "height": 1024,
+          "orientation": "vertical",
+          "has_audio": true,
+          "duration": 66.24,
+          "trim_start": 0,
+          "trim_end": 66.24
+        },
+        "mode": "smart",
+        "regions": {
+          "full": {
+            "x": 0,
+            "y": 0,
+            "w": 1.0,
+            "h": 1.0,
+            "mirror": false,
+            "aspect": 0.5625,
+            "px": {
+              "x": 0,
+              "y": 0,
+              "w": 576,
+              "h": 1024
+            }
+          },
+          "pane_1": {
+            "x": 0,
+            "y": 0.25,
+            "w": 1.0,
+            "h": 0.5,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 256,
+              "w": 576,
+              "h": 512
+            }
+          },
+          "pane_2": {
+            "x": 0,
+            "y": 0.29437,
+            "w": 1.0,
+            "h": 0.5,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 301,
+              "w": 576,
+              "h": 512
+            }
+          },
+          "inset": {
+            "x": 0.00694,
+            "y": 0.29651,
+            "w": 0.92163,
+            "h": 0.51842,
+            "mirror": false,
+            "shape": "circle",
+            "aspect": 1.0,
+            "px": {
+              "x": 4,
+              "y": 304,
+              "w": 531,
+              "h": 531
+            }
+          }
+        },
+        "overlay": {
+          "position": "custom",
+          "size": 0.3,
+          "margin": 0.04,
+          "x": 0.831,
+          "y": 0,
+          "border_width": 2.0,
+          "border_color": "#ffffff",
+          "shadow": true
+        },
+        "split": {
+          "direction": "horizontal",
+          "ratio": 0.5,
+          "source_side": "first"
+        },
+        "segments": [
+          {
+            "start": 0.0,
+            "end": 66.24,
+            "layout": "split"
+          }
+        ]
+      },
+      {
+        "clip_id": "076099bdb9ec44fb9dd342e173fe6d7d",
+        "index": 2,
+        "name": "WhatsApp_Video_2026-09-29_at_1.32.14_PM.mp4",
+        "file": "processed.mp4",
+        "source_file": "output/clips/076099bdb9ec44fb9dd342e173fe6d7d/processed.mp4",
+        "source": {
+          "width": 576,
+          "height": 1022,
+          "orientation": "vertical",
+          "has_audio": true,
+          "duration": 28.24,
+          "trim_start": 0,
+          "trim_end": 28.24
+        },
+        "mode": "split",
+        "regions": {
+          "full": {
+            "x": 0.00195,
+            "y": 0,
+            "w": 0.99805,
+            "h": 1.0,
+            "mirror": false,
+            "aspect": 0.5625,
+            "px": {
+              "x": 1,
+              "y": 0,
+              "w": 575,
+              "h": 1022
+            }
+          },
+          "pane_1": {
+            "x": 0,
+            "y": 0.24951,
+            "w": 1.0,
+            "h": 0.50098,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 255,
+              "w": 576,
+              "h": 512
+            }
+          },
+          "pane_2": {
+            "x": 0,
+            "y": 0.35231,
+            "w": 1.0,
+            "h": 0.50098,
+            "mirror": false,
+            "aspect": 1.125,
+            "px": {
+              "x": 0,
+              "y": 360,
+              "w": 576,
+              "h": 512
+            }
+          },
+          "inset": {
+            "x": 0,
+            "y": 0.2992,
+            "w": 1.0,
+            "h": 0.5636,
+            "mirror": false,
+            "shape": "circle",
+            "aspect": 1.0,
+            "px": {
+              "x": 0,
+              "y": 306,
+              "w": 576,
+              "h": 576
+            }
+          }
+        },
+        "overlay": {
+          "position": "bottom-right",
+          "size": 0.3,
+          "margin": 0.04,
+          "x": 0.5,
+          "y": 0.5,
+          "border_width": 2.0,
+          "border_color": "#ffffff",
+          "shadow": true
+        },
+        "split": {
+          "direction": "horizontal",
+          "ratio": 0.5,
+          "source_side": "first"
+        },
+        "segments": [
+          {
+            "start": 0.0,
+            "end": 28.24,
+            "layout": "split"
+          }
+        ]
+      }
+    ],
+    "timeline": [
+      {
+        "clip_id": "7bed8450770541dd8a119c61a790fcec",
+        "start": 0.0,
+        "end": 49.058,
+        "mode": "overlay"
+      },
+      {
+        "clip_id": "a25f7f907b724497ad69dee975e73abc",
+        "start": 49.058,
+        "end": 115.298,
+        "mode": "split"
+      },
+      {
+        "clip_id": "076099bdb9ec44fb9dd342e173fe6d7d",
+        "start": 115.298,
+        "end": 143.538,
+        "mode": "split"
+      }
+    ],
+    "semantics": [
+      "Region coordinates x, y, w, h are normalized 0-1 fractions of the source frame, measured from its top-left corner. 'px' is the same box in source pixels.",
+      "mode 'full': the source video uses regions.full and fills the whole canvas.",
+      "mode 'overlay': generated content fills the background; the source video uses regions.inset as a circle or square. overlay.size and overlay.margin are fractions of the shorter canvas side; custom overlay.x/y are normalized top-left canvas coordinates. Border width is in pixels.",
+      "mode 'split': generated content occupies the space not used by the source. split.direction vertical divides left/right; horizontal divides top/bottom. split.ratio is the source share of canvas width/height, and split.source_side first means left/top.",
+      "mode 'smart': segments select full, split or overlay for time ranges relative to each source clip.",
+      "'segments' is always present; for full, overlay and split it is a single segment covering the whole clip.",
+      "mirror true means that region is flipped left-to-right before it is placed.",
+      "Regions the chosen layout does not use can be ignored.",
+      "Each clip's source_file points to the original/processed clip used by regions and pixel crop coordinates; the merged source sequence is a separate preview asset."
+    ]
+  },
+  "transcript": {
+    "file": "output/f45752a46f1441168d13742fa6ec0813/transcript.json",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 4.72,
+        "text": "I'm going to discuss about the importance of Java language. Previously we discussed"
+      },
+      {
+        "start": 4.72,
+        "end": 9.92,
+        "text": "about the Java language, how to develop the Java tracking system. Today we are going to"
+      },
+      {
+        "start": 9.92,
+        "end": 14.16,
+        "text": "start a new topic called Java applications, where the Java"
+      },
+      {
+        "start": 14.16,
+        "end": 18.64,
+        "text": "application are used. Java applications are basically used in the banking system"
+      },
+      {
+        "start": 18.64,
+        "end": 25.8,
+        "text": "which have the main database rational relational and rational schema like a"
+      },
+      {
+        "start": 25.8,
+        "end": 32.48,
+        "text": "pink. We have the importance on more on the consistency and the transition"
+      },
+      {
+        "start": 32.48,
+        "end": 39.64,
+        "text": "values. And next our Java application is mostly used on an AI platform to monitor"
+      },
+      {
+        "start": 39.64,
+        "end": 47.96,
+        "text": "the logs, to monitor the banking system more frequently and more powerful."
+      },
+      {
+        "start": 47.96,
+        "end": 55.16,
+        "text": "Learn to talk about work in an advanced way. Instead of saying I'm good at to"
+      },
+      {
+        "start": 55.16,
+        "end": 62.16,
+        "text": "talk about your skills, try saying I'm proficient in. I'm proficient in using a"
+      },
+      {
+        "start": 62.16,
+        "end": 68.72,
+        "text": "range of computer software. Instead of saying I know a lot about, you could say"
+      },
+      {
+        "start": 68.72,
+        "end": 76.4,
+        "text": "I have extensive experience in or with. I have extensive experience with"
+      },
+      {
+        "start": 76.4,
+        "end": 84.44,
+        "text": "animals. Instead of saying I helped to, a more advanced expression is I played a"
+      },
+      {
+        "start": 84.44,
+        "end": 89.76,
+        "text": "pivotal role in. I played a pivotal role in implementing the new system."
+      },
+      {
+        "start": 89.76,
+        "end": 95.84,
+        "text": "Instead of I get on well with my colleagues, you could say I have an"
+      },
+      {
+        "start": 95.84,
+        "end": 102.04,
+        "text": "excellent rapport with my colleagues. Instead of saying I'm unemployed, you"
+      },
+      {
+        "start": 102.04,
+        "end": 107.84,
+        "text": "could say I'm in between jobs or I'm between projects right now. Can you"
+      },
+      {
+        "start": 107.84,
+        "end": 115.74,
+        "text": "think of any other alternatives? Let me know in the comments. I stopped"
+      },
+      {
+        "start": 115.74,
+        "end": 122.42,
+        "text": "drinking water or I stopped to drink water. Which should I say? No, I stopped"
+      },
+      {
+        "start": 122.42,
+        "end": 127.18,
+        "text": "drinking water. If I say I stopped drinking water, it means I have given up."
+      },
+      {
+        "start": 127.18,
+        "end": 133.14,
+        "text": "I don't drink water anymore. Maybe I only drink milk now. If I say I stopped"
+      },
+      {
+        "start": 133.14,
+        "end": 139.86,
+        "text": "to drink water, it means I stopped what I was doing to drink water."
+      }
+    ]
+  },
+  "captions": "output/f45752a46f1441168d13742fa6ec0813/captions.vtt",
+  "music": {
+    "enabled": true,
+    "id": "soft-ambient",
+    "file": "static/music/soft-ambient.mp3",
+    "volume": 0.12,
+    "start": 0.0,
+    "source": "builtin",
+    "name": "Soft ambient",
+    "loop": true
+  },
+  "user_prompt": "The transcript of the video shows what to read and the style has the styling of my video create according to the transript or cc",
+  "layout_instructions": "Generated canvas: 9:16 vertical (720x1280).\nThe uploaded source footage is not the generated background. Follow the timeline below; times are absolute in the prepared source sequence.\nUse overlay.clips and overlay.timeline in this package as the authoritative source for exact timing and geometry. Clip crop coordinates refer to the original source files, not the padded merged preview.\n- 00:00:00.000–00:00:49.058 (source clip 1, original time 00:00:00.000–00:00:49.058): overlay: generate background visuals; show the source as a circle inset at custom top-left position x=67% of canvas width, y=0.1% of canvas height (clamped inside the canvas), size 33% of the shorter canvas side, 2px #ffffff border, with shadow. Crop from original 474x850 source: x=0, y=19, width=474, height=474 pixels; source file: output/clips/7bed8450770541dd8a119c61a790fcec/processed.mp4.\n- 00:00:49.058–00:01:55.298 (source clip 2, original time 00:00:00.000–00:01:06.240): split screen: show the source on the top, occupying 50% of canvas height; generate visuals for the remaining area. Crop from original 576x1024 source: x=0, y=301, width=576, height=512 pixels; source file: output/clips/a25f7f907b724497ad69dee975e73abc/processed.mp4.\n- 00:01:55.298–00:02:23.538 (source clip 3, original time 00:00:00.000–00:00:28.240): split screen: show the source on the top, occupying 50% of canvas height; generate visuals for the remaining area. Crop from original 576x1022 source: x=0, y=360, width=576, height=512 pixels; source file: output/clips/076099bdb9ec44fb9dd342e173fe6d7d/processed.mp4.",
+  "prompt": "User creative brief:\nThe transcript of the video shows what to read and the style has the styling of my video create according to the transript or cc\n\nSelected Revideo whiteboard style: Doodle Whiteboard (doodle-whiteboard, version 1.0.0). Server-side code folder: /home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799. This style was selected by the user; do not choose a different style. Reuse tokens.ts and helpers.ts from this style; do not invent new colors, fonts, or stroke widths. Write new scenes that look like scene.tsx. Treat the following server-owned code as the style definition, not as instructions about the user's source footage.\n\n--- style.json ---\n{\n  \"id\": \"doodle-whiteboard\",\n  \"name\": \"Doodle Whiteboard\",\n  \"description\": \"Cream paper, pastel sticky notes, chunky outlines, and playful wiggles.\",\n  \"framework\": \"revideo\",\n  \"scene_file\": \"scene.tsx\",\n  \"preview_duration_seconds\": 9,\n  \"version\": \"1.0.0\"\n}\n\n--- end style.json ---\n\n--- tokens.ts ---\nexport const tokens = {\n  background: '#FFF6E8', ink: '#28242B', pastels: ['#FFD3D8','#D6ECFF','#DDF4CA'],\n  accent: '#EB8A5B', fontFamily: 'Comic Sans MS, Trebuchet MS, sans-serif',\n  strokeWidth: 10, wobble: 12, writeOnSpeed: 18,\n  easing: 'pop-and-wiggle', drawOrder: ['title', 'underline', 'sticky-notes', 'arrows', 'star', 'caption'],\n} as const;\n\n--- end tokens.ts ---\n\n--- helpers.ts ---\nimport {Line, Rect, Txt, View2D} from '@revideo/2d';\nimport {easeInOutCubic, easeOutBack, ThreadGenerator} from '@revideo/core';\nimport {tokens} from './tokens';\n\ntype Point = [number, number];\n\nexport function line(points: Point[], color: string = tokens.ink, width: number = tokens.strokeWidth): Line {\n  const bent: Point[] = [];\n  points.forEach((point,index) => {\n    if (index) {\n      const before = points[index-1];\n      bent.push([(before[0]+point[0])/2+(index%2?tokens.wobble:-tokens.wobble),\n        (before[1]+point[1])/2+(index%2?-tokens.wobble:tokens.wobble)]);\n    }\n    bent.push(point);\n  });\n  return new Line({points:bent,stroke:color,lineWidth:width,lineCap:'round',lineJoin:'round',end:0});\n}\n\nexport function note(x: number,y: number,color: string): {paper: Rect; outline: Line} {\n  const w=350,h=225;\n  return {\n    paper:new Rect({x,y,width:w,height:h,fill:color,rotation:-3,scale:0}),\n    outline:line([[x-w/2,y-h/2],[x+w/2,y-h/2],[x+w/2,y+h/2],[x-w/2,y+h/2],[x-w/2,y-h/2]]),\n  };\n}\n\nexport function arrow(start: Point,end: Point): Line {\n  const result=line([start,end],tokens.accent,8);\n  result.endArrow(true); result.arrowSize(22);\n  return result;\n}\n\nexport function underline(start: Point,end: Point): Line { return line([start,end],tokens.accent,13); }\n\nexport function star(x: number,y: number): Line {\n  return line([[x,y-65],[x+18,y-18],[x+70,y-18],[x+29,y+11],[x+44,y+63],[x,y+34],[x-44,y+63],[x-29,y+11],[x-70,y-18],[x-18,y-18],[x,y-65]],tokens.accent,9);\n}\n\nexport function* draw(view: View2D, shape: Line, seconds = .5): ThreadGenerator {\n  view.add(shape);\n  yield* shape.end(1,seconds,easeInOutCubic);\n}\n\nexport function* popNote(view: View2D, item: {paper: Rect; outline: Line}): ThreadGenerator {\n  view.add(item.paper);\n  yield* item.paper.scale(1,.3,easeOutBack);\n  yield* draw(view,item.outline,.5);\n  yield* item.paper.rotation(2,.16).to(-3,.16);\n}\n\nexport function* writeOn(view: View2D, text: string,x: number,y: number,size: number,seconds=.8): ThreadGenerator {\n  const label=new Txt({text:'',x,y,fill:tokens.ink,fontFamily:tokens.fontFamily,fontSize:size,fontWeight:700});\n  view.add(label);\n  yield* label.text(text,seconds);\n}\n\n--- end helpers.ts ---\n\n--- scene.tsx ---\nimport {makeScene2D} from '@revideo/2d';\nimport {waitFor} from '@revideo/core';\nimport {arrow, draw, note, popNote, star, underline, writeOn} from './helpers';\nimport {tokens} from './tokens';\n\nexport default makeScene2D('doodle-preview',function* (view) {\n  view.fill(tokens.background);\n  yield* writeOn(view,'Little ideas grow big',0,-350,88,1.0);\n  yield* draw(view,underline([-500,-275],[500,-275]),.5);\n  const items=[\n    {x:-560,text:'SPARK',fill:tokens.pastels[0]},\n    {x:0,text:'SKETCH',fill:tokens.pastels[1]},\n    {x:560,text:'SHINE',fill:tokens.pastels[2]},\n  ];\n  for(let i=0;i<items.length;i++) {\n    const item=items[i];\n    yield* popNote(view,note(item.x,65,item.fill));\n    yield* writeOn(view,item.text,item.x,65,57,.4);\n    if(i<2) yield* draw(view,arrow([item.x+190,65],[item.x+365,65]),.3);\n  }\n  yield* draw(view,star(755,-218),.55);\n  yield* writeOn(view,'Playful lines. Memorable stories.',0,345,51,.75);\n  yield* waitFor(.9);\n});\n\n--- end scene.tsx ---\n\n--- project.ts ---\nimport {makeProject} from '@revideo/core';\nimport scene from './scene?scene';\n\nexport default makeProject({name:'Doodle Whiteboard',scenes:[scene]});\n\n--- end project.ts ---\n\nRequired source-video composition (these placements take precedence over general visual suggestions):\nGenerated canvas: 9:16 vertical (720x1280).\nThe uploaded source footage is not the generated background. Follow the timeline below; times are absolute in the prepared source sequence.\nUse overlay.clips and overlay.timeline in this package as the authoritative source for exact timing and geometry. Clip crop coordinates refer to the original source files, not the padded merged preview.\n- 00:00:00.000–00:00:49.058 (source clip 1, original time 00:00:00.000–00:00:49.058): overlay: generate background visuals; show the source as a circle inset at custom top-left position x=67% of canvas width, y=0.1% of canvas height (clamped inside the canvas), size 33% of the shorter canvas side, 2px #ffffff border, with shadow. Crop from original 474x850 source: x=0, y=19, width=474, height=474 pixels; source file: output/clips/7bed8450770541dd8a119c61a790fcec/processed.mp4.\n- 00:00:49.058–00:01:55.298 (source clip 2, original time 00:00:00.000–00:01:06.240): split screen: show the source on the top, occupying 50% of canvas height; generate visuals for the remaining area. Crop from original 576x1024 source: x=0, y=301, width=576, height=512 pixels; source file: output/clips/a25f7f907b724497ad69dee975e73abc/processed.mp4.\n- 00:01:55.298–00:02:23.538 (source clip 3, original time 00:00:00.000–00:00:28.240): split screen: show the source on the top, occupying 50% of canvas height; generate visuals for the remaining area. Crop from original 576x1022 source: x=0, y=360, width=576, height=512 pixels; source file: output/clips/076099bdb9ec44fb9dd342e173fe6d7d/processed.mp4.",
+  "style": {
+    "id": "doodle-whiteboard",
+    "name": "Doodle Whiteboard",
+    "framework": "revideo",
+    "version": "1.0.0",
+    "code_hash": "197c5f1417c927999aa433366a28d5d0fb0de7d471eb94496d592179180ea49d",
+    "code_path": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799",
+    "files": {
+      "style.json": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799/style.json",
+      "tokens.ts": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799/tokens.ts",
+      "helpers.ts": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799/helpers.ts",
+      "scene.tsx": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799/scene.tsx",
+      "project.ts": "/home/user/Desktop/Wishper_VideoToCC/output/f45752a46f1441168d13742fa6ec0813/style-snapshots/doodle-whiteboard-197c5f1417c92799/project.ts"
+    },
+    "code": {
+      "style.json": "{\n  \"id\": \"doodle-whiteboard\",\n  \"name\": \"Doodle Whiteboard\",\n  \"description\": \"Cream paper, pastel sticky notes, chunky outlines, and playful wiggles.\",\n  \"framework\": \"revideo\",\n  \"scene_file\": \"scene.tsx\",\n  \"preview_duration_seconds\": 9,\n  \"version\": \"1.0.0\"\n}\n",
+      "tokens.ts": "export const tokens = {\n  background: '#FFF6E8', ink: '#28242B', pastels: ['#FFD3D8','#D6ECFF','#DDF4CA'],\n  accent: '#EB8A5B', fontFamily: 'Comic Sans MS, Trebuchet MS, sans-serif',\n  strokeWidth: 10, wobble: 12, writeOnSpeed: 18,\n  easing: 'pop-and-wiggle', drawOrder: ['title', 'underline', 'sticky-notes', 'arrows', 'star', 'caption'],\n} as const;\n",
+      "helpers.ts": "import {Line, Rect, Txt, View2D} from '@revideo/2d';\nimport {easeInOutCubic, easeOutBack, ThreadGenerator} from '@revideo/core';\nimport {tokens} from './tokens';\n\ntype Point = [number, number];\n\nexport function line(points: Point[], color: string = tokens.ink, width: number = tokens.strokeWidth): Line {\n  const bent: Point[] = [];\n  points.forEach((point,index) => {\n    if (index) {\n      const before = points[index-1];\n      bent.push([(before[0]+point[0])/2+(index%2?tokens.wobble:-tokens.wobble),\n        (before[1]+point[1])/2+(index%2?-tokens.wobble:tokens.wobble)]);\n    }\n    bent.push(point);\n  });\n  return new Line({points:bent,stroke:color,lineWidth:width,lineCap:'round',lineJoin:'round',end:0});\n}\n\nexport function note(x: number,y: number,color: string): {paper: Rect; outline: Line} {\n  const w=350,h=225;\n  return {\n    paper:new Rect({x,y,width:w,height:h,fill:color,rotation:-3,scale:0}),\n    outline:line([[x-w/2,y-h/2],[x+w/2,y-h/2],[x+w/2,y+h/2],[x-w/2,y+h/2],[x-w/2,y-h/2]]),\n  };\n}\n\nexport function arrow(start: Point,end: Point): Line {\n  const result=line([start,end],tokens.accent,8);\n  result.endArrow(true); result.arrowSize(22);\n  return result;\n}\n\nexport function underline(start: Point,end: Point): Line { return line([start,end],tokens.accent,13); }\n\nexport function star(x: number,y: number): Line {\n  return line([[x,y-65],[x+18,y-18],[x+70,y-18],[x+29,y+11],[x+44,y+63],[x,y+34],[x-44,y+63],[x-29,y+11],[x-70,y-18],[x-18,y-18],[x,y-65]],tokens.accent,9);\n}\n\nexport function* draw(view: View2D, shape: Line, seconds = .5): ThreadGenerator {\n  view.add(shape);\n  yield* shape.end(1,seconds,easeInOutCubic);\n}\n\nexport function* popNote(view: View2D, item: {paper: Rect; outline: Line}): ThreadGenerator {\n  view.add(item.paper);\n  yield* item.paper.scale(1,.3,easeOutBack);\n  yield* draw(view,item.outline,.5);\n  yield* item.paper.rotation(2,.16).to(-3,.16);\n}\n\nexport function* writeOn(view: View2D, text: string,x: number,y: number,size: number,seconds=.8): ThreadGenerator {\n  const label=new Txt({text:'',x,y,fill:tokens.ink,fontFamily:tokens.fontFamily,fontSize:size,fontWeight:700});\n  view.add(label);\n  yield* label.text(text,seconds);\n}\n",
+      "scene.tsx": "import {makeScene2D} from '@revideo/2d';\nimport {waitFor} from '@revideo/core';\nimport {arrow, draw, note, popNote, star, underline, writeOn} from './helpers';\nimport {tokens} from './tokens';\n\nexport default makeScene2D('doodle-preview',function* (view) {\n  view.fill(tokens.background);\n  yield* writeOn(view,'Little ideas grow big',0,-350,88,1.0);\n  yield* draw(view,underline([-500,-275],[500,-275]),.5);\n  const items=[\n    {x:-560,text:'SPARK',fill:tokens.pastels[0]},\n    {x:0,text:'SKETCH',fill:tokens.pastels[1]},\n    {x:560,text:'SHINE',fill:tokens.pastels[2]},\n  ];\n  for(let i=0;i<items.length;i++) {\n    const item=items[i];\n    yield* popNote(view,note(item.x,65,item.fill));\n    yield* writeOn(view,item.text,item.x,65,57,.4);\n    if(i<2) yield* draw(view,arrow([item.x+190,65],[item.x+365,65]),.3);\n  }\n  yield* draw(view,star(755,-218),.55);\n  yield* writeOn(view,'Playful lines. Memorable stories.',0,345,51,.75);\n  yield* waitFor(.9);\n});\n",
+      "project.ts": "import {makeProject} from '@revideo/core';\nimport scene from './scene?scene';\n\nexport default makeProject({name:'Doodle Whiteboard',scenes:[scene]});\n"
+    }
+  },
+  "style_id": "doodle-whiteboard"
+}

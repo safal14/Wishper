@@ -1,0 +1,1 @@
+{"version":3,"file":"Framerate.d.ts","sourceRoot":"","sources":["../../../src/components/playback/Framerate.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAC,KAAK,EAAC,MAAM,QAAQ,CAAC;AAIlC,UAAU,cAAc;IACtB,MAAM,EAAE,CAAC,SAAS,EAAE,MAAM,EAAE,MAAM,EAAE,OAAO,KAAK,KAAK,CAAC,OAAO,CAAC,CAAC;CAChE;AAED,wBAAgB,SAAS,CAAC,EAAC,MAAM,EAAC,EAAE,cAAc,kBAmCjD"}

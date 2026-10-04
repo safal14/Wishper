@@ -1,0 +1,2 @@
+export declare function useDocumentEvent<T extends keyof DocumentEventMap>(type: T, listener: (this: Document, ev: DocumentEventMap[T]) => void, enabled?: boolean, capture?: boolean): void;
+//# sourceMappingURL=useDocumentEvent.d.ts.map

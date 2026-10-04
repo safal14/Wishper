@@ -1,0 +1,1 @@
+{"version":3,"file":"viewport.d.ts","sourceRoot":"","sources":["../../src/contexts/viewport.ts"],"names":[],"mappings":"AAGA,MAAM,WAAW,aAAa;IAC5B,CAAC,EAAE,MAAM,CAAC;IACV,CAAC,EAAE,MAAM,CAAC;IACV,IAAI,EAAE,eAAe,CAAC;IACtB,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,OAAO,CAAC;IACd,eAAe,EAAE,MAAM,CAAC;CACzB;AAWD,eAAO,MAAM,gBAAgB,0CAA2B,CAAC;AACzD,wBAAgB,kBAAkB,kBAEjC"}

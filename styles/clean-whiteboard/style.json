@@ -1,0 +1,9 @@
+{
+  "id": "clean-whiteboard",
+  "name": "Clean Whiteboard",
+  "description": "An off-white canvas, precise navy lines, numbered steps, and calm motion.",
+  "framework": "revideo",
+  "scene_file": "scene.tsx",
+  "preview_duration_seconds": 9,
+  "version": "1.0.0"
+}

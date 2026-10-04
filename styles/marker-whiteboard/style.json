@@ -1,0 +1,9 @@
+{
+  "id": "marker-whiteboard",
+  "name": "Marker Whiteboard",
+  "description": "Bold marker strokes, vivid accents, and a visible drawing cursor.",
+  "framework": "revideo",
+  "scene_file": "scene.tsx",
+  "preview_duration_seconds": 9,
+  "version": "1.0.0"
+}

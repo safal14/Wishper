@@ -1,0 +1,1 @@
+{"version":3,"file":"useShortcut.d.ts","sourceRoot":"","sources":["../../src/hooks/useShortcut.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAC,eAAe,EAAC,MAAM,uBAAuB,CAAC;AAI3D,KAAK,YAAY,CAAC,CAAC,SAAS,WAAW,IAAI,CAAC,KAAK,CAAC,SAAS,CAAC,CAAC,CAAC,EAAE,OAAO,CAAC,CAAC;AAEzE,wBAAgB,WAAW,CAAC,CAAC,SAAS,WAAW,EAC/C,cAAc,EAAE,eAAe,GAC9B,YAAY,CAAC,CAAC,CAAC,CAYjB"}

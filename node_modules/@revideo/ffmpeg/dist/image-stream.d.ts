@@ -1,0 +1,8 @@
+import { Readable } from 'stream';
+export declare class ImageStream extends Readable {
+    private image;
+    private hasData;
+    pushImage(image: Buffer | null): void;
+    _read(): void;
+}
+//# sourceMappingURL=image-stream.d.ts.map

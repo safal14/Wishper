@@ -1,0 +1,89 @@
+{
+  "clip_id": "7bed8450770541dd8a119c61a790fcec",
+  "name": "WhatsApp_Video_2026-09-29_at_1.32.17_PM_1.mp4",
+  "filename": "processed.mp4",
+  "original_filename": "original.mp4",
+  "effect": "none",
+  "settings": {
+    "brightness": 0.0,
+    "contrast": 1.0,
+    "saturation": 1.0,
+    "sharpness": 0,
+    "blur": 0,
+    "video_noise": 0,
+    "audio_noise": 0,
+    "noise_type": "general",
+    "audio_mode": "manual",
+    "hum_frequency": "auto",
+    "remove_rumble": 1,
+    "reduce_hiss": 0,
+    "normalize_audio": 1,
+    "audio_algorithm": "afftdn",
+    "voice_enhance": 0,
+    "speed": 1.0,
+    "rotate": 0.0,
+    "fade_in": 0,
+    "fade_out": 0
+  },
+  "width": 474,
+  "height": 850,
+  "duration": 49.058,
+  "orientation": "vertical",
+  "has_audio": true,
+  "layout": {
+    "mode": "overlay",
+    "regions": {
+      "full": {
+        "x": 0,
+        "y": 0.00431,
+        "w": 1.0,
+        "h": 0.99137,
+        "mirror": false
+      },
+      "pane_1": {
+        "x": 0,
+        "y": 0.25218,
+        "w": 1.0,
+        "h": 0.49569,
+        "mirror": false
+      },
+      "pane_2": {
+        "x": 0,
+        "y": 0.25218,
+        "w": 1.0,
+        "h": 0.49569,
+        "mirror": false
+      },
+      "inset": {
+        "x": 0,
+        "y": 0.02232,
+        "w": 1.0,
+        "h": 0.55765,
+        "mirror": false,
+        "shape": "circle"
+      }
+    },
+    "overlay": {
+      "position": "custom",
+      "size": 0.33,
+      "margin": 0.04,
+      "x": 0.67,
+      "y": 0.001,
+      "border_width": 2.0,
+      "border_color": "#ffffff",
+      "shadow": true
+    },
+    "split": {
+      "direction": "horizontal",
+      "ratio": 0.5,
+      "source_side": "second"
+    },
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 49.058,
+        "layout": "overlay"
+      }
+    ]
+  }
+}

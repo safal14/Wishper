@@ -1,0 +1,1 @@
+{"version":3,"file":"RangeSelector.d.ts","sourceRoot":"","sources":["../../../src/components/timeline/RangeSelector.tsx"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAC,SAAS,EAAC,MAAM,QAAQ,CAAC;AAItC,MAAM,WAAW,kBAAkB;IACjC,QAAQ,EAAE,SAAS,CAAC,cAAc,CAAC,CAAC;CACrC;AAED,wBAAgB,aAAa,CAAC,EAAC,QAAQ,EAAC,EAAE,kBAAkB,gCA8B3D"}

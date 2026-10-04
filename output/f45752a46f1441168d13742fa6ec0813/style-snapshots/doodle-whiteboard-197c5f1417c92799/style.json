@@ -1,0 +1,9 @@
+{
+  "id": "doodle-whiteboard",
+  "name": "Doodle Whiteboard",
+  "description": "Cream paper, pastel sticky notes, chunky outlines, and playful wiggles.",
+  "framework": "revideo",
+  "scene_file": "scene.tsx",
+  "preview_duration_seconds": 9,
+  "version": "1.0.0"
+}

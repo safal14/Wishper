@@ -1,0 +1,1 @@
+{"version":3,"file":"ProjectSelection.d.ts","sourceRoot":"","sources":["../src/ProjectSelection.tsx"],"names":[],"mappings":"AAGA,MAAM,WAAW,WAAW;IAC1B,IAAI,EAAE,MAAM,CAAC;IACb,QAAQ,EAAE,MAAM,CAAC;IACjB,GAAG,EAAE,MAAM,CAAC;CACb;AAED,MAAM,WAAW,qBAAqB;IACpC,QAAQ,EAAE,WAAW,EAAE,CAAC;CACzB;AAED,wBAAgB,gBAAgB,CAAC,EAAC,QAAQ,EAAC,EAAE,qBAAqB,gCAcjE"}
